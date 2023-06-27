@@ -25,7 +25,8 @@
                 "ec2:DeleteVolume",
                 "ec2:CreateSnapshot",
                 "ec2:DescribeSnapshots",
-                "ec2:DeleteSnapshot" 
+                "ec2:DeleteSnapshot",
+                "ec2:ReportInstanceStatus"
             ],
             "Resource": "*"
         }

@@ -28,13 +28,13 @@ aws ec2 wait instance-status-ok --instance-ids "$INSTANCE_ID"
 echo "All checks are ok"
 
 echo "Connect to the instance to start Stable Diffusion WEB UI"
-ssh -i ${KEY_FILE_PATH} -o StrictHostKeyChecking=no ubuntu@${PUBLIC_IP}  << EOF
+ssh -i ~/.ssh/${KEY_FILE_PATH} -o StrictHostKeyChecking=no ubuntu@${PUBLIC_IP}  << EOF
   ./start.webui.sh -d
   exit
 EOF
 
 echo "Set tunnel for 7860 port"
-ssh -i ${KEY_FILE_PATH} -fN -L 7860:127.0.0.1:7860 ubuntu@${PUBLIC_IP}
+ssh -i ~/.ssh/${KEY_FILE_PATH} -fN -L 7860:127.0.0.1:7860 ubuntu@${PUBLIC_IP}
 
 timestamp "End: "
 
